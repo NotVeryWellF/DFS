@@ -1,0 +1,12 @@
+FROM python:3.8-alpine
+
+ADD requirements.txt /requirements.txt
+
+RUN pip3 install --no-cache-dir -r /requirements.txt
+
+ADD master.py /master.py
+
+# tell the port number the container should expose
+EXPOSE 2131
+
+CMD ["python3", "/master.py"]
